@@ -627,8 +627,8 @@ MonoBehaviour:
   GravityStrenght: 0.25
   intialJumpSpeed: 0
   alive: 1
-  boxSize: {x: 1.04, y: 1.12}
-  castDistance: 0.16
+  boxSize: {x: 1.07, y: 0.79}
+  castDistance: 0.25
   ground:
     serializedVersion: 2
     m_Bits: 64
@@ -645,11 +645,58 @@ Transform:
   m_GameObject: {fileID: 1022490126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.20854907, y: 0.22020562, z: 0.027552458}
+  m_LocalPosition: {x: -0.20854907, y: 1.31, z: 0.027552458}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 444927610}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1338120424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338120426}
+  - component: {fileID: 1338120425}
+  m_Layer: 0
+  m_Name: Grid display
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1338120425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338120424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85fb7a9d927cff244a15a670e1ae92a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 10
+  y: 24
+  size: 4
+--- !u!4 &1338120426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338120424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.43, y: 0.5, z: 0.06981189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530764934
@@ -808,7 +855,7 @@ Transform:
   m_GameObject: {fileID: 1530764934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7837, y: -4.05, z: 0}
+  m_LocalPosition: {x: 0.7837, y: 0, z: 0}
   m_LocalScale: {x: 24.894121, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -822,3 +869,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1530764938}
   - {fileID: 1022490131}
+  - {fileID: 1338120426}
