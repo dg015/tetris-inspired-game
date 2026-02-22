@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private float decelerationRate;
     [SerializeField] private float maxSpeed;
 
-     private InputActionReference move;
     [SerializeField] private Vector2 playerInput;
 
     [Header("Veritcal")]
@@ -32,8 +31,6 @@ public class PlayerController : MonoBehaviour
     private float gravity;
     public float intialJumpSpeed;
 
-    //to rotate the player in the correct direction
-    [SerializeField] private Transform head;
 
     //health system
     public bool alive = true;
@@ -50,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Animation")]
-    [SerializeField] private Animator animator;
+   // [SerializeField] private Animator animator;
 
     [Header("new Input system")]
     [SerializeField] private PlayerInput playerInputComponent;
@@ -82,7 +79,7 @@ public class PlayerController : MonoBehaviour
         intialJumpSpeed = 2 * apexHeight / apexTime;
 
         //getanimator
-        animator = transform.GetComponentInChildren<Animator>();
+       // animator = transform.GetComponentInChildren<Animator>();
 
         playerInputComponent = GetComponent<PlayerInput>();
 
@@ -107,10 +104,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         
-
-        
-        //set head rotaion
-        scaleBodyToHeadRotation(head, transform);
 
         //read inputs
         
@@ -187,12 +180,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance,ground))
         {
-            animator.SetBool("InAir", false);
+            //animator.SetBool("InAir", false);
             return true;
         }
         else 
         {
-            animator.SetBool("InAir", true);
+           // animator.SetBool("InAir", true);
             return false;
         }
     }
@@ -232,7 +225,7 @@ public class PlayerController : MonoBehaviour
     }
     public void checkHorizontalInput(InputAction.CallbackContext context)
     {
-        //Debug.Log("reading");
+        Debug.Log("reading");
         playerInput = context.ReadValue<Vector2>();
         
     }
@@ -261,12 +254,12 @@ public class PlayerController : MonoBehaviour
             }
             if(isGrounded())
             {
-                animator.SetBool("IsWalking", true);
+                //animator.SetBool("IsWalking", true);
             }
         }
         else // here for decealartion 
         { 
-            animator.SetBool("IsWalking", false);
+           // animator.SetBool("IsWalking", false);
             //deceleration
             //decelrationRate is applied every second eats away the remaining velocity
             if (PVelocity.x > 0)
@@ -320,7 +313,7 @@ public class PlayerController : MonoBehaviour
         if(isGrounded() == true)
         {
       
-            animator.SetTrigger("Jumping");
+            //animator.SetTrigger("Jumping");
             PVelocity.y = intialJumpSpeed;
         }
         
