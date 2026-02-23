@@ -1,0 +1,104 @@
+using NodeCanvas.Framework;
+using ParadoxNotion.Design;
+using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+
+
+namespace NodeCanvas.Tasks.Actions {
+
+	public class FollowPlayer : ActionTask {
+
+        public BBParameter<GameObject> target;
+        public BBParameter<float> speed = 2;
+        public BBParameter<float> stopDistance;
+
+        public BBParameter<float> timeBeforeDropping;
+		public BBParameter<float> maxTimeBeforeDropping;
+        public BBParameter<GameObject> startingGridObject;
+        public BBParameter<int> gridCellSize;
+
+		public BBParameter<int> stepDistance;
+
+
+        //Use for initialization. This is called only once in the lifetime of the task.
+        //Return null if init was successfull. Return an error string otherwise
+        protected override string OnInit() {
+			return null;
+		}
+
+		//This is called once each time the task is enabled.
+		//Call EndAction() to mark the action as finished, either in success or failure.
+		//EndAction can be called from anywhere.
+		protected override void OnExecute() {
+            stepDistance = stepDistance.value * gridCellSize.value;
+
+            //EndAction(true);
+
+		}
+
+		//Called once per frame while the action is active.
+		protected override void OnUpdate() {
+			//set in to follow player
+			followPlayer();
+
+        }
+
+		//Called when the task is disabled.
+		protected override void OnStop() {
+			
+		}
+
+		//Called when the task is paused.
+		protected override void OnPause() {
+			
+		}
+
+		private int getPlayerYDirection(float distance)
+		{
+			if (distance > 0)
+			{
+				return 1;
+			}
+            if (distance < 0)
+            {
+                return -1;
+            }
+			else
+			{
+				return 0;
+			}
+        }
+
+
+		private void followPlayer()
+		{
+			//get Y distance between player and AI enemy
+			float distance = target.value.transform.position.y - agent.transform.position.y;
+
+			
+            if (distance < stopDistance.value)
+            {
+
+                //follow player logic here
+                //get which direction the player is compared to the object, 
+                int direction = getPlayerYDirection(distance);
+
+				//calculate new position 
+				Vector2 newPosition = new Vector2(agent.transform.position.x, agent.transform.position.y * direction * gridCellSize.value);
+				//check if the vector is not overSteping
+
+				if(newPosition.y - target.value.transform.position.y > stepDistance.value)
+				{
+
+				}
+
+            }
+			else
+			{
+				//reached the player, ready to fire
+                EndAction(true);
+            }
+        }
+	}
+}
