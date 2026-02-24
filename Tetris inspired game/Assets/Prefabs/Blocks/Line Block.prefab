@@ -223,6 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeMovement: 2
   gridCellSize: 4
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
 --- !u!1 &6808299481630710250
 GameObject:
   m_ObjectHideFlags: 0
