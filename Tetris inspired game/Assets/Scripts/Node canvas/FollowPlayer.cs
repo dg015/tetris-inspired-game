@@ -118,7 +118,7 @@ namespace NodeCanvas.Tasks.Actions {
 			{
 				//reached the player, ready to fire
 				Debug.Log("reacehd player");
-				//EndAction(true);
+				EndAction(true);
 			}
         }
 	}
