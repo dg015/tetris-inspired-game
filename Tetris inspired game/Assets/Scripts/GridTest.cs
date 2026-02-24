@@ -31,4 +31,10 @@ public class GridTest : MonoBehaviour
 
         }
     }
+
+
+    public void snapObjectToGrid(GameObject obj,int blockHeight)
+    {
+        obj.transform.position = new Vector2(obj.transform.position.x, 0 + size * blockHeight);
+    }
 }

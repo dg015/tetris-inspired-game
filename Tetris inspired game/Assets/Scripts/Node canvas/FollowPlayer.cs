@@ -10,15 +10,20 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class FollowPlayer : ActionTask {
 
+		public BBParameter<GridTest> grid;
         public BBParameter<GameObject> target;
         public BBParameter<float> timeBeforeMovement = 2;
 		public BBParameter<float> currentTime;
         public BBParameter<float> stopDistance;
+        public BBParameter<GameObject> thisObject;
 
+        //IN BLOCKS
+        public BBParameter<int> height;
 
         //public BBParameter<float> timeBeforeDropping;
-		//public BBParameter<float> maxTimeBeforeDropping;
-		//public BBParameter<GameObject> startingGridObject;
+        //public BBParameter<float> maxTimeBeforeDropping;
+        //public BBParameter<GameObject> startingGridObject;
+
         public BBParameter<int> gridCellSize;
 
 		public BBParameter<int> stepDistance;
@@ -35,7 +40,7 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
             stepDistance = stepDistance.value * gridCellSize.value;
-
+			grid.value.snapObjectToGrid(thisObject.value, height.value);
             //EndAction(true);
 		}
 

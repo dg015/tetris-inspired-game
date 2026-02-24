@@ -27,7 +27,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		private void shoot()
 		{
-			GameObject.Instantiate(chooseBlock(blocks.value));
+			GameObject.Instantiate(chooseBlock(blocks.value), fireLocation.value.transform.position,Quaternion.identity);
 			EndAction(true);
 		}
 

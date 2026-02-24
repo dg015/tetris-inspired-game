@@ -309,11 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7b5c8ae878c6e48add87826a7bd4e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeMovement: 2
+  timeBeforeMovement: 0.5
   gridCellSize: 4
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
+  raycastDistance: 6.1
 --- !u!1 &9129120798111749371
 GameObject:
   m_ObjectHideFlags: 0
