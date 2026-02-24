@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
     }
     public void checkHorizontalInput(InputAction.CallbackContext context)
     {
-        Debug.Log("reading");
+        //Debug.Log("reading");
         playerInput = context.ReadValue<Vector2>();
         
     }

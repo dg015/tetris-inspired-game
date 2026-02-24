@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using System.Runtime.CompilerServices;
@@ -10,12 +11,14 @@ namespace NodeCanvas.Tasks.Actions {
 	public class FollowPlayer : ActionTask {
 
         public BBParameter<GameObject> target;
-        public BBParameter<float> speed = 2;
+        public BBParameter<float> timeBeforeMovement = 2;
+		public BBParameter<float> currentTime;
         public BBParameter<float> stopDistance;
 
-        public BBParameter<float> timeBeforeDropping;
-		public BBParameter<float> maxTimeBeforeDropping;
-        public BBParameter<GameObject> startingGridObject;
+
+        //public BBParameter<float> timeBeforeDropping;
+		//public BBParameter<float> maxTimeBeforeDropping;
+		//public BBParameter<GameObject> startingGridObject;
         public BBParameter<int> gridCellSize;
 
 		public BBParameter<int> stepDistance;
@@ -34,14 +37,12 @@ namespace NodeCanvas.Tasks.Actions {
             stepDistance = stepDistance.value * gridCellSize.value;
 
             //EndAction(true);
-
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 			//set in to follow player
 			followPlayer();
-
         }
 
 		//Called when the task is disabled.
@@ -58,11 +59,11 @@ namespace NodeCanvas.Tasks.Actions {
 		{
 			if (distance > 0)
 			{
-				return 1;
+				return -1;
 			}
             if (distance < 0)
             {
-                return -1;
+                return 1;
             }
 			else
 			{
@@ -70,35 +71,55 @@ namespace NodeCanvas.Tasks.Actions {
 			}
         }
 
+		private bool countUpTime(float maxTime)
+		{
+            currentTime.value += Time.deltaTime;
+			//Mathf.Clamp(currentTime.value, 0, maxTime);
+
+            
+            if (currentTime.value >= maxTime)
+			{
+				currentTime.value = 0;
+                return true;
+			}
+			else
+			{
+				return false;
+			}
+        }
+
+
+
 
 		private void followPlayer()
 		{
-			//get Y distance between player and AI enemy
-			float distance = target.value.transform.position.y - agent.transform.position.y;
+            //get Y distance between player and AI enemy
+            float YDistance = agent.transform.position.x - target.value.transform.position.x;
 
-			
-            if (distance < stopDistance.value)
-            {
-
-                //follow player logic here
-                //get which direction the player is compared to the object, 
-                int direction = getPlayerYDirection(distance);
-
-				//calculate new position 
-				Vector2 newPosition = new Vector2(agent.transform.position.x, agent.transform.position.y * direction * gridCellSize.value);
-				//check if the vector is not overSteping
-
-				if(newPosition.y - target.value.transform.position.y > stepDistance.value)
+            if (countUpTime(timeBeforeMovement.value))
+			{
+				if (Mathf.Abs (YDistance) >= stopDistance.value)
 				{
+					
+					//follow player logic here
 
+					//get which direction the player is compared to the object, 
+					int direction = getPlayerYDirection(YDistance);
+					Debug.Log(direction);
+
+					//calculate new position 
+					Vector2 newPosition = new Vector2(agent.transform.position.x + direction * gridCellSize.value, agent.transform.position.y );
+
+					//apply position 
+					agent.transform.position = newPosition;
 				}
-
-            }
-			else
+			}
+			else if(YDistance <= stopDistance.value)
 			{
 				//reached the player, ready to fire
-                EndAction(true);
-            }
+				Debug.Log("reacehd player");
+				//EndAction(true);
+			}
         }
 	}
 }
