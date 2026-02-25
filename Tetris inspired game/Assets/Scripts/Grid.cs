@@ -1,7 +1,6 @@
 using CodeMonkey.Utils;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -13,13 +12,12 @@ public class Grid : MonoBehaviour
     private Vector3 originPosition;
     private int fontSize = 10;
     private int[,] gridArray;
-    private bool filled;
     
 
     private TextMesh[,] debugTextArray;
 
 
-    public Grid (int width, int height, float cellSize, Vector3 originPosition, bool filled)
+    public Grid (int width, int height, float cellSize, Vector3 originPosition)
     {
         this.width = width;
         this.height = height;
@@ -30,7 +28,7 @@ public class Grid : MonoBehaviour
         debugTextArray = new TextMesh[width, height];
        
 
-        //Debug.Log(width + " " + height);
+        
 
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
@@ -49,7 +47,7 @@ public class Grid : MonoBehaviour
         Debug.DrawLine(getWorldPosition(width, 0), getWorldPosition(width, height), Color.green, 1000f);
 
 
-        setValue(1, 1, 56);
+        //setValue(1, 1, 56);
 
         //debugging test
 
@@ -71,6 +69,7 @@ public class Grid : MonoBehaviour
         
     }
 
+    //get the XY position to something snapped to the grid
     private void getXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
@@ -88,22 +87,19 @@ public class Grid : MonoBehaviour
     }
 
 
-    public bool checkIfBlockOccupied(Vector3 worldPosition,LayerMask layer)
+    public void setBlockStatus(Vector2 position,int status)
     {
-        int x, y;
-        getXY(worldPosition,out x,out y);
-
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(x, y), Vector2.one * cellSize, 0,layer);
-        if (hitColliders.Length > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        int x;
+        int y;
+        //get the X and Y snapped to the grid
+        getXY(position, out x, out y);
+        //set the value there for 0 or 1
+        setValue(x, y, status);
+        //Vector2 worldPosition = getWorldPosition(x, y);
     }
+
+
+
 
     //get the value atributed to the cell 
     public int getGridValue(int x, int y)

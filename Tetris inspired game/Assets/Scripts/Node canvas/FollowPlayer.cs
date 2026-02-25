@@ -124,7 +124,7 @@ namespace NodeCanvas.Tasks.Actions {
 			else if(YDistance <= stopDistance.value)
 			{
 				//reached the player, ready to fire
-				Debug.Log("reacehd player");
+				
 				EndAction(true);
 			}
         }

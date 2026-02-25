@@ -8,15 +8,14 @@ public class GridTest : MonoBehaviour
     [SerializeField] private int y;
     [SerializeField] private float size;
     [SerializeField] private Vector3 originPosition;
-    private List<bool> occupiedArrays = new List<bool>();
 
 
-    private Grid grid;
+    public Grid grid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         grid = new Grid(x, y,size, originPosition);
+        grid = new Grid(x, y,size, originPosition); 
     }
 
 
@@ -33,6 +32,7 @@ public class GridTest : MonoBehaviour
             Debug.Log(grid.getGridValueWorldPosition(UtilsClass.GetMouseWorldPosition()));
 
         }
+        
     }
 
 

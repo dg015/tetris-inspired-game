@@ -9,6 +9,7 @@ public class BlockMovement : MonoBehaviour
 
     [Header("Grid Data")]
     [SerializeField] private float gridCellSize;
+    [SerializeField] private GridTest grid;
 
     [Header("Collision")]
     [SerializeField] private LayerMask stopLayer;
@@ -22,7 +23,7 @@ public class BlockMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        grid = GameObject.Find("Grid display").GetComponent<GridTest>();
     }
 
     private bool countUpTime(float maxTime)
@@ -78,8 +79,13 @@ public class BlockMovement : MonoBehaviour
         {
             detectedFloor = true;
             Debug.Log("hit stop");
-        }
 
+            //run to check if the children blocks are occupied
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                grid.grid.setBlockStatus(transform.GetChild(i).transform.position,1);
+            }
+        }
     }
 
 
