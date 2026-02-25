@@ -110,7 +110,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 					//get which direction the player is compared to the object, 
 					int direction = getPlayerYDirection(YDistance);
-					Debug.Log(direction);
+					
 
 					//calculate new position 
 					Vector2 newPosition = new Vector2(agent.transform.position.x + direction * gridCellSize.value, agent.transform.position.y );
