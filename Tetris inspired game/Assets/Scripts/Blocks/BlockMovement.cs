@@ -1,25 +1,27 @@
 using NodeCanvas.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockMovement : MonoBehaviour
 {
     [Header("Timer")]
-    [SerializeField] private float timeBeforeMovement = 2;
-    private float currentTime;
+    [SerializeField] protected float timeBeforeMovement = 2;
+    protected float currentTime;
 
     [Header("Grid Data")]
-    [SerializeField] private float gridCellSize;
-    [SerializeField] private GridTest grid;
+    [SerializeField] protected float gridCellSize;
+    [SerializeField] protected GridTest grid;
 
     [Header("Collision")]
-    [SerializeField] private LayerMask stopLayer;
-    [SerializeField] private float raycastDistance;
-    [SerializeField] private Vector3 sizeOffset;
+    [SerializeField] protected LayerMask stopLayer;
+    [SerializeField] protected float raycastDistance;
+    [SerializeField] protected Vector3 sizeOffset;
 
     [Header("movement management")]
-    [SerializeField] public bool detectedFloor = false;
-    [SerializeField] private bool lineFormed = false;
-
+    [SerializeField] protected bool detectedFloor = false;
+    [SerializeField] protected bool lineFormed = false;
+    [SerializeField] protected BlockMovement ParentBlockMovement;
+    [SerializeField] protected List<BlockMovement> childBlockMovement;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +30,7 @@ public class BlockMovement : MonoBehaviour
         grid = GameObject.Find("Grid display").GetComponent<GridTest>();
     }
 
-    private bool countUpTime(float maxTime)
+    protected virtual bool countUpTime(float maxTime)
     {
         currentTime += Time.deltaTime;
         //Mathf.Clamp(currentTime.value, 0, maxTime);
@@ -47,6 +49,14 @@ public class BlockMovement : MonoBehaviour
 
 
 
+    private void setChildrenScriptActive()
+    {
+        foreach(BlockMovement child in childBlockMovement)
+        {
+            child.enabled = true;   
+            child.detectedFloor = true;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -60,7 +70,7 @@ public class BlockMovement : MonoBehaviour
         }
     }
 
-    private void moveBlock()
+    protected virtual void moveBlock()
     {
         if (countUpTime(timeBeforeMovement))
         {
@@ -88,24 +98,23 @@ public class BlockMovement : MonoBehaviour
     }
 
 
-    private void detectFloor()
+    protected virtual void detectFloor()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset, Vector2.down, raycastDistance, stopLayer);
         
-        if(hit.collider == null || hit.transform.IsChildOf(this.transform.parent))  
+        if(hit.collider == null)  
         {
             moveBlock();
         }
         else
         {
+            
             detectedFloor = true;
-            Debug.Log(hit.transform.parent.ToString());
-
-
-            //run to check if the children blocks are occupied
+            ParentBlockMovement.enabled = false;
+            setChildrenScriptActive();
             for (int i = 0; i < transform.childCount; i++)
             {
-                grid.grid.setBlockStatus(transform.GetChild(i).transform.position,1);
+                grid.grid.setBlockStatus(transform.GetChild(i).transform.position, 1);
             }
         }
     }

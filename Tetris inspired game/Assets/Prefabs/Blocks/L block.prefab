@@ -59,6 +59,12 @@ MonoBehaviour:
   sizeOffset: {x: 0, y: -12.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
+  ParentBlockMovement: {fileID: -5504862988524538345}
+  childBlockMovement:
+  - {fileID: 5001567819816533479}
+  - {fileID: 5604256094405678448}
+  - {fileID: 2675245273176403808}
+  - {fileID: 2127992157727233667}
 --- !u!50 &6199413324939172684
 Rigidbody2D:
   serializedVersion: 5
@@ -256,7 +262,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641052115645310941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
   m_Name: 
@@ -271,6 +277,9 @@ MonoBehaviour:
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
+  ParentBlockMovement: {fileID: -5504862988524538345}
+  childBlockMovement: []
+  childBlockMovement: {fileID: 0}
 --- !u!1 &3557167663871041164
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +450,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3557167663871041164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
   m_Name: 
@@ -456,6 +465,12 @@ MonoBehaviour:
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
+  ParentBlockMovement: {fileID: -5504862988524538345}
+  childBlockMovement:
+  - {fileID: 5001567819816533479}
+  - {fileID: 0}
+  - {fileID: 0}
+  childBlockMovement: {fileID: 0}
 --- !u!1 &7770937754915725911
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770937754915725911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
   m_Name: 
@@ -641,6 +656,13 @@ MonoBehaviour:
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
+  ParentBlockMovement: {fileID: -5504862988524538345}
+  childBlockMovement:
+  - {fileID: 5001567819816533479}
+  - {fileID: 5604256094405678448}
+  - {fileID: 2675245273176403808}
+  - {fileID: 2127992157727233667}
+  childBlockMovement: {fileID: 0}
 --- !u!1 &9019501442868710968
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +833,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9019501442868710968}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
   m_Name: 
@@ -826,3 +848,9 @@ MonoBehaviour:
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
+  ParentBlockMovement: {fileID: -5504862988524538345}
+  childBlockMovement:
+  - {fileID: 5001567819816533479}
+  - {fileID: 0}
+  - {fileID: 0}
+  childBlockMovement: {fileID: 0}
