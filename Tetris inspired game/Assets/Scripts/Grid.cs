@@ -98,7 +98,39 @@ public class Grid : MonoBehaviour
         //Vector2 worldPosition = getWorldPosition(x, y);
     }
 
+    public bool fullLineCheck(int Y)
+    {
+        //checks the whole X line 
+        int count = 0;
 
+        for (int x = 0; x < width; x++)
+        {
+            if (gridArray[x,Y] != 0)
+            {
+                count++;
+            }
+        }
+        if(count == width)
+        {
+            Debug.Log("clear line");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void deleteFullLine(int Y, bool lineFormed)
+    {
+        lineFormed = true;
+        for (int x = 0; x < width; x++)
+        {
+            //reset all of them to 0
+            gridArray[x, Y] = 0;
+
+        }
+    }
 
 
     //get the value atributed to the cell 
