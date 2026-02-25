@@ -1,5 +1,6 @@
-using UnityEngine;
 using CodeMonkey.Utils;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class GridTest : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class GridTest : MonoBehaviour
     [SerializeField] private int y;
     [SerializeField] private float size;
     [SerializeField] private Vector3 originPosition;
+    private List<bool> occupiedArrays = new List<bool>();
+
 
     private Grid grid;
 

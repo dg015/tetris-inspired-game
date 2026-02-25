@@ -1,6 +1,7 @@
 using CodeMonkey.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -12,11 +13,13 @@ public class Grid : MonoBehaviour
     private Vector3 originPosition;
     private int fontSize = 10;
     private int[,] gridArray;
+    private bool filled;
+    
 
     private TextMesh[,] debugTextArray;
 
 
-    public Grid (int width, int height, float cellSize, Vector3 originPosition)
+    public Grid (int width, int height, float cellSize, Vector3 originPosition, bool filled)
     {
         this.width = width;
         this.height = height;
@@ -25,6 +28,7 @@ public class Grid : MonoBehaviour
 
         gridArray = new int[width, height];
         debugTextArray = new TextMesh[width, height];
+       
 
         //Debug.Log(width + " " + height);
 
@@ -38,6 +42,7 @@ public class Grid : MonoBehaviour
                 Debug.DrawLine(getWorldPosition(x, y), getWorldPosition(x, y  + 1),Color.green,1000f);
                 Debug.DrawLine(getWorldPosition(x, y), getWorldPosition(x + 1, y), Color.green, 1000f);
 
+                
             }
         }
         Debug.DrawLine(getWorldPosition(0,height), getWorldPosition(width, height), Color.green, 1000f);
@@ -45,9 +50,12 @@ public class Grid : MonoBehaviour
 
 
         setValue(1, 1, 56);
+
+        //debugging test
+
     }
 
-    private Vector3 getWorldPosition(int x, int y)
+    public Vector3 getWorldPosition(int x, int y)
     {
         return new Vector3(x, y) * cellSize + originPosition;
     }
@@ -70,6 +78,7 @@ public class Grid : MonoBehaviour
 
     }
 
+    //set the value in the cell
     public void setValueWorldPosition(Vector3 worldPosition, int value)
     {
         int x, y;
@@ -78,6 +87,25 @@ public class Grid : MonoBehaviour
 
     }
 
+
+    public bool checkIfBlockOccupied(Vector3 worldPosition,LayerMask layer)
+    {
+        int x, y;
+        getXY(worldPosition,out x,out y);
+
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(new Vector2(x, y), Vector2.one * cellSize, 0,layer);
+        if (hitColliders.Length > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    //get the value atributed to the cell 
     public int getGridValue(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
@@ -90,6 +118,7 @@ public class Grid : MonoBehaviour
         }
     }
 
+    //returns coordinate of the cell in world position
     public int getGridValueWorldPosition(Vector3 worldPosition)
     {
         int x, y;

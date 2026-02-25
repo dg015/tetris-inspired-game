@@ -1,0 +1,27 @@
+TODO
+
+abilities
+
+-double jump
+-wall jump (only once)
+-destroy one block (cooldown)
+
+block 
+-clear lines
+
+AI
+- rotate blocks before shooting
+
+Block "champions"
+-faster blocks (kinda like shooting the blocks)
+-rotating blocks
+
+IF THERES MORE TIME (WOULD LOOK COOL IN PORTFOLIO)
+rogue like elements
+
+Moving platforms???????
+teleporters?????
+
+Map creation
+-generate new scenes with differnt sized levels based on difficulty variable
+-generate door in diffent heights and sides based on difficulty
