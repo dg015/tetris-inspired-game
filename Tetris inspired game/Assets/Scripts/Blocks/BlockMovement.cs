@@ -8,6 +8,7 @@ public class BlockMovement : MonoBehaviour
     [SerializeField] private float gridCellSize;
     [SerializeField] private LayerMask stopLayer;
     [SerializeField] private float raycastDistance;
+    [SerializeField] private Vector3 sizeOffset;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,26 +56,15 @@ public class BlockMovement : MonoBehaviour
 
     private void detectFloor()
     {
-        RaycastHit2D hit;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset, Vector2.down, raycastDistance, stopLayer);
         
-        if(!Physics2D.Raycast(transform.position,Vector2.down,raycastDistance,stopLayer))
+        if(hit.collider == null)  
         {
-
-            /*
-            if (Vector2.Distance(transform.position,hit.transform.position) > 0.5f)
-            {
-                
-            }
-            else
-            {
-                Debug.Log("hit floor or cube");
-            }
-            */
             moveBlock();
         }
         else
         {
-            //Debug.Log("hit stop");
+            Debug.Log("hit stop");
         }
 
     }
@@ -83,7 +73,9 @@ public class BlockMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, Vector2.down * raycastDistance);
+
+        
+        Gizmos.DrawRay(transform.position + sizeOffset, Vector2.down * raycastDistance);
     }
 
 }
