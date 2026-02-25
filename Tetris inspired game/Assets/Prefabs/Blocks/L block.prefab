@@ -51,11 +51,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeMovement: 0.5
   gridCellSize: 4
+  grid: {fileID: 0}
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -12.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!50 &6199413324939172684
 Rigidbody2D:
   serializedVersion: 5
@@ -95,6 +98,7 @@ GameObject:
   - component: {fileID: 284153096335889360}
   - component: {fileID: 8487437194090904669}
   - component: {fileID: 8735164816448563451}
+  - component: {fileID: 5001567819816533479}
   m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
@@ -245,6 +249,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5001567819816533479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641052115645310941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 0
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 2
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!1 &3557167663871041164
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +283,7 @@ GameObject:
   - component: {fileID: 9042844953269742799}
   - component: {fileID: 6459375996031712606}
   - component: {fileID: 6499701920569999416}
+  - component: {fileID: 2675245273176403808}
   m_Layer: 8
   m_Name: Square (2)
   m_TagString: Untagged
@@ -407,6 +434,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2675245273176403808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557167663871041164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 0
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 2
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!1 &7770937754915725911
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +468,7 @@ GameObject:
   - component: {fileID: 2492270198683263573}
   - component: {fileID: 190227161061539464}
   - component: {fileID: 286752855592770284}
+  - component: {fileID: 5604256094405678448}
   m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
@@ -569,6 +619,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5604256094405678448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770937754915725911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 0
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 2
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!1 &9019501442868710968
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +653,7 @@ GameObject:
   - component: {fileID: 4184254836777262382}
   - component: {fileID: 6776932895898772903}
   - component: {fileID: 7805147709429169120}
+  - component: {fileID: 2127992157727233667}
   m_Layer: 8
   m_Name: Square (3)
   m_TagString: Untagged
@@ -731,3 +804,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2127992157727233667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019501442868710968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 0
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 2
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0

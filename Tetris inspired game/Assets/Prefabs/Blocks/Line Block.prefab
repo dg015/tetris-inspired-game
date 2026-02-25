@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2513496503899719185}
   - component: {fileID: 8716600009863261259}
   - component: {fileID: 3599328980270543262}
+  - component: {fileID: 3481023864587632445}
   m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
@@ -162,6 +163,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &3481023864587632445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3085673047952568469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 4
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 0
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!1 &4130586457720538226
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +197,7 @@ GameObject:
   - component: {fileID: 1749097124244817599}
   - component: {fileID: 8692237475301296919}
   - component: {fileID: 7769651897862617358}
+  - component: {fileID: 7824962014638737724}
   m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
@@ -324,6 +348,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &7824962014638737724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4130586457720538226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 4
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 0
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!1 &5783972088594074675
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,11 +420,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeMovement: 0.5
   gridCellSize: 4
+  grid: {fileID: 0}
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -12.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0
 --- !u!50 &-5578831553135139686
 Rigidbody2D:
   serializedVersion: 5
@@ -418,6 +467,7 @@ GameObject:
   - component: {fileID: 734490652700240830}
   - component: {fileID: 3890579499250633835}
   - component: {fileID: 4873128177971074865}
+  - component: {fileID: 2731807587606726510}
   m_Layer: 8
   m_Name: Square (2)
   m_TagString: Untagged
@@ -568,3 +618,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2731807587606726510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808299481630710250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c8135c63d348d4bacc8cfb18e2eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeMovement: 0.5
+  gridCellSize: 4
+  grid: {fileID: 0}
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 320
+  raycastDistance: 0
+  sizeOffset: {x: 0, y: -2.01, z: 0}
+  detectedFloor: 0
+  lineFormed: 0

@@ -17,8 +17,10 @@ public class BlockMovement : MonoBehaviour
     [SerializeField] private Vector3 sizeOffset;
 
     [Header("movement management")]
-    [SerializeField] private bool detectedFloor = false;
+    [SerializeField] public bool detectedFloor = false;
     [SerializeField] private bool lineFormed = false;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,6 +54,10 @@ public class BlockMovement : MonoBehaviour
         {
             detectFloor();
         }
+        else
+        {
+            Debug.Log("cant move");
+        }
     }
 
     private void moveBlock()
@@ -67,18 +73,34 @@ public class BlockMovement : MonoBehaviour
     }
 
 
+    private bool checkChildrenFloor()
+    {
+       for (int i = 0; i<transform.parent.childCount; i++) 
+       {
+           BlockMovement childBlockMovement = transform.parent.GetChild(i).GetComponent<BlockMovement>();
+            if (childBlockMovement.lineFormed == true)
+            {
+                return true;
+            }
+     
+       }
+       return false;
+    }
+
+
     private void detectFloor()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset, Vector2.down, raycastDistance, stopLayer);
         
-        if(hit.collider == null || hit.transform.IsChildOf(this.transform))  
+        if(hit.collider == null || hit.transform.IsChildOf(this.transform.parent))  
         {
             moveBlock();
         }
         else
         {
             detectedFloor = true;
-            Debug.Log("hit stop");
+            Debug.Log(hit.transform.parent.ToString());
+
 
             //run to check if the children blocks are occupied
             for (int i = 0; i < transform.childCount; i++)
