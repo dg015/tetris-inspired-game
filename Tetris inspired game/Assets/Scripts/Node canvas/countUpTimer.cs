@@ -43,7 +43,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		private void Timer()
 		{
-			Debug.Log("running TIMER");
+			
 			runTime.value += Time.deltaTime;
 			if (runTime.value >= cooldownTime.value)
 			{

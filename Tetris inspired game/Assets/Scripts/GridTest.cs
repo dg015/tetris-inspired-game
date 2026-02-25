@@ -37,4 +37,15 @@ public class GridTest : MonoBehaviour
     {
         obj.transform.position = new Vector2(obj.transform.position.x, 0 + size * blockHeight);
     }
+
+    public void snapToCenterCell(GameObject obj, float worldPosition)
+    {
+        //convert to grid space, since the grid doesnt start at 0 we need to apply the offset
+        float localPositionX = worldPosition - originPosition.x;
+        //find closest cell
+        int cellIndex = Mathf.RoundToInt(localPositionX / size);
+        //return the location of the center of the closest cell
+        float newPosition = originPosition.x + (cellIndex * size) + (size / 2);
+        obj.transform.position= new Vector2(newPosition, obj.transform.position.y);
+    }
 }

@@ -74,7 +74,7 @@ public class BlockMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("hit stop");
+            //Debug.Log("hit stop");
         }
 
     }
