@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class BlockMovementChidlren : BlockMovement
 {
-    
+    [SerializeField] private bool movingDebug;
+    public bool DetectedFloor
+    {
+        get { return detectedFloor; }
+        set { detectedFloor = value; }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +30,20 @@ public class BlockMovementChidlren : BlockMovement
         
     }
 
+    void FixedUpdate()
+    {
+        /*
+        if (!detectedFloor || lineFormed)
+        {
+            
+        }
+        else
+        {
+            Debug.Log("cant move");
+        }
+        */
+        detectFloor();
+    }
 
     protected override void detectFloor()
     {
@@ -32,6 +52,7 @@ public class BlockMovementChidlren : BlockMovement
         if (hit.collider == null)
         {
             moveBlock();
+            movingDebug = true;
         }
         else
         {
