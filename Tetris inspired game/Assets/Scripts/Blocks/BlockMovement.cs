@@ -55,6 +55,7 @@ public class BlockMovement : MonoBehaviour
         {
             child.enabled = true;   
             child.detectedFloor = true;
+            
         }
     }
     // Update is called once per frame

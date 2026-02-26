@@ -9,6 +9,7 @@ public class GridTest : MonoBehaviour
     [SerializeField] private float size;
     [SerializeField] private Vector3 originPosition;
 
+    [SerializeField] private GameObject debugBlock;
 
     public Grid grid;
 
@@ -32,7 +33,11 @@ public class GridTest : MonoBehaviour
             Debug.Log(grid.getGridValueWorldPosition(UtilsClass.GetMouseWorldPosition()));
 
         }
-        
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            grid.debugLine(debugBlock);
+        }
+
     }
 
 

@@ -6,7 +6,8 @@ public class BlockMovementChidlren : BlockMovement
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        grid = GameObject.Find("Grid display").GetComponent<GridTest>();
+        detectFloor();
     }
 
     private void disabledChildScript()
@@ -37,6 +38,12 @@ public class BlockMovementChidlren : BlockMovement
             detectedFloor = true;
             ParentBlockMovement.enabled = false;
             grid.grid.setBlockStatus(transform.position, 1);
+            int x;
+            int y;
+            grid.grid.getXY(transform.position, out x, out y);
+
+
+            grid.grid.fullLineCheck(y);
         }
     }
 

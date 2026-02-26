@@ -1437,6 +1437,7 @@ MonoBehaviour:
   y: 20
   size: 4
   originPosition: {x: -12.3, y: 0, z: 0}
+  grid: {fileID: 0}
 --- !u!4 &1338120426
 Transform:
   m_ObjectHideFlags: 0

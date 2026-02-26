@@ -70,7 +70,7 @@ public class Grid : MonoBehaviour
     }
 
     //get the XY position to something snapped to the grid
-    private void getXY(Vector3 worldPosition, out int x, out int y)
+    public void getXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
         y = Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
@@ -102,21 +102,24 @@ public class Grid : MonoBehaviour
     {
         //checks the whole X line 
         int count = 0;
-
+        
         for (int x = 0; x < width; x++)
         {
             if (gridArray[x,Y] != 0)
             {
                 count++;
             }
+
+            //Debug.Log(count);
         }
         if(count == width)
         {
-            Debug.Log("clear line");
+            deleteFullLine(Y);
             return true;
         }
         else
         {
+            Debug.Log("no line");
             return false;
         }
     }
@@ -147,6 +150,19 @@ public class Grid : MonoBehaviour
         }
     }
     */
+
+    public void debugLine(GameObject block)
+    {
+        float XLocation = 0;
+        for (int i = 0; i < width; i++)
+        {
+            XLocation += cellSize;
+
+            Vector2 location = new Vector2(XLocation, originPosition.y + cellSize);
+            Instantiate(block, location,Quaternion.identity);
+        }
+    }
+
 
     public void deleteFullLine(int lineY)
     {

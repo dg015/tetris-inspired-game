@@ -181,7 +181,7 @@ MonoBehaviour:
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
-  raycastDistance: 0
+  raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
-  raycastDistance: 0
+  raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
@@ -645,7 +645,7 @@ MonoBehaviour:
   stopLayer:
     serializedVersion: 2
     m_Bits: 320
-  raycastDistance: 0
+  raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
   detectedFloor: 0
   lineFormed: 0
