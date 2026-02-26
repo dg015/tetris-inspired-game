@@ -121,14 +121,55 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void deleteFullLine(int Y, bool lineFormed)
+    /*
+     * This is OLD, I have it here just before I comit just in case I mess up somewhere so I can hava a look
+    public void deleteFullLine(int Y)
     {
-        lineFormed = true;
+        
         for (int x = 0; x < width; x++)
         {
+            //get blocks
+            var myObject = GameObject.FindGameObjectWithTag("Block");
             //reset all of them to 0
             gridArray[x, Y] = 0;
 
+            int X1;
+            int y;
+
+            getXY(myObject.transform.position, out X1, out y);
+
+            //delete cubes 
+            if(y == Y)
+            {
+                Destroy(myObject);
+            }
+
+        }
+    }
+    */
+
+    public void deleteFullLine(int lineY)
+    {
+        //reset the line to 0
+        for (int i = 0; i < width; i++)
+        {
+            gridArray[i, lineY] = 0;
+        }
+
+        //get cubes
+        var blocks = Object.FindObjectsByType<BlockMovementChidlren>(FindObjectsSortMode.None);
+        foreach (var block in blocks)
+        {
+            //convert the block location into grid location
+            int X;
+            int y;
+            getXY(block.transform.position, out X, out y);
+
+            //check if cube makes part of the line
+            if (y == lineY)
+            {
+                Destroy(block.gameObject);
+            }
         }
     }
 

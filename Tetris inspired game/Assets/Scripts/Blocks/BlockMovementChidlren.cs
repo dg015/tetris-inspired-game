@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class BlockMovementChidlren : BlockMovement
 {
-    [SerializeField] protected BlockMovement childBlockMovement;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        childBlockMovement.enabled = false;
+        
+    }
+
+    private void disabledChildScript()
+    {
+        for (int i = 0; i < childBlockMovement.Count; i++) 
+        {
+            childBlockMovement[i].enabled = false;
+        }
     }
 
     // Update is called once per frame

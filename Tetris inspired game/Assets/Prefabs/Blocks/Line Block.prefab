@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3481023864587632445}
   m_Layer: 8
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,6 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: -2943348558529799620}
   childBlockMovement: []
-  childBlockMovement: {fileID: 0}
 --- !u!1 &4130586457720538226
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +202,7 @@ GameObject:
   - component: {fileID: 7824962014638737724}
   m_Layer: 8
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +374,6 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: -2943348558529799620}
   childBlockMovement: []
-  childBlockMovement: {fileID: 0}
 --- !u!1 &5783972088594074675
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +479,7 @@ GameObject:
   - component: {fileID: 2731807587606726510}
   m_Layer: 8
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,4 +651,3 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: -2943348558529799620}
   childBlockMovement: []
-  childBlockMovement: {fileID: 0}
