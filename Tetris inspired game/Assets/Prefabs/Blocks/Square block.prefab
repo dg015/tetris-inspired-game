@@ -187,6 +187,7 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: 3076966411939974249}
   childBlockMovement: []
+  movingDebug: 0
 --- !u!1 &1836918133588784310
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +375,7 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: 3076966411939974249}
   childBlockMovement: []
+  movingDebug: 0
 --- !u!1 &7066199229102562820
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +563,7 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: 3076966411939974249}
   childBlockMovement: []
+  movingDebug: 0
 --- !u!1 &7145253243906709815
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +575,7 @@ GameObject:
   - component: {fileID: 5721748238511626847}
   - component: {fileID: 3076966411939974249}
   - component: {fileID: -7250681598787436638}
+  - component: {fileID: 226861636576172126}
   m_Layer: 8
   m_Name: Square block
   m_TagString: Untagged
@@ -592,10 +596,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7798287910928978317}
   - {fileID: 1171166049954791460}
-  - {fileID: 7051463068489659807}
   - {fileID: 4020210381671263201}
+  - {fileID: 7051463068489659807}
+  - {fileID: 7798287910928978317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3076966411939974249
@@ -653,6 +657,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &226861636576172126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145253243906709815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053c5520cfbbbb342afc4fe34381c836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
 --- !u!1 &9129120798111749371
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,3 +857,4 @@ MonoBehaviour:
   lineFormed: 0
   ParentBlockMovement: {fileID: 3076966411939974249}
   childBlockMovement: []
+  movingDebug: 0

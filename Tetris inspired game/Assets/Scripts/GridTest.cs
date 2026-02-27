@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GridTest : MonoBehaviour
 {
-    [SerializeField] private int x;
-    [SerializeField] private int y;
+    [SerializeField] public int x;
+    [SerializeField] public int y;
     [SerializeField] private float size;
     [SerializeField] private Vector3 originPosition;
 

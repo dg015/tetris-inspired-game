@@ -49,7 +49,10 @@ namespace NodeCanvas.Tasks.Actions {
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 			//set in to follow player
-			followPlayer();
+
+            followPlayer();
+            
+			
         }
 
 		//Called when the task is disabled.
