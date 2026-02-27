@@ -119,7 +119,7 @@ public class Grid : MonoBehaviour
         }
         else
         {
-            Debug.Log("no line");
+            
             return false;
         }
     }
