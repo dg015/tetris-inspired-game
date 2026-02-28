@@ -3,6 +3,13 @@ using UnityEngine;
 public class BlockMovementChidlren : BlockMovement
 {
     [SerializeField] private bool movingDebug;
+
+    [SerializeField] protected Vector2 killboxSize;
+
+    [SerializeField] private GameObject bloodExplosion;
+
+    private bool alreadyPlayedAudio = false;
+
     public bool DetectedFloor
     {
         get { return detectedFloor; }
@@ -43,6 +50,31 @@ public class BlockMovementChidlren : BlockMovement
         }
         */
         detectFloor();
+        checkForSmashedPlayer();
+    }
+
+    private void checkForSmashedPlayer()
+    {
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, killboxSize,0);
+        foreach (Collider2D hit in hits) 
+            {
+                if (hit.CompareTag("player"))
+                {
+                    AudioManager.playSound(SoundType.death, 1);
+                    Debug.Log("kill player");
+                    Destroy(hit.gameObject);
+                    Instantiate(bloodExplosion, hit.transform.position, Quaternion.identity);
+                }
+            }
+
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawWireCube(transform.position, killboxSize);
     }
 
     protected override void detectFloor()
@@ -51,21 +83,27 @@ public class BlockMovementChidlren : BlockMovement
 
         if (hit.collider == null)
         {
+            alreadyPlayedAudio = false;
             moveBlock();
             movingDebug = true;
         }
         else
         {
+            
             detectedFloor = true;
             ParentBlockMovement.enabled = false;
             grid.grid.setBlockStatus(transform.position, 1);
             int x;
             int y;
             grid.grid.getXY(transform.position, out x, out y);
-
+            alreadyPlayedAudio = true;
 
             grid.grid.fullLineCheck(y);
+
+
+
         }
+
     }
 
 }

@@ -102,26 +102,26 @@ public class BlockMovement : MonoBehaviour
 
     protected virtual void detectFloor()
     {
-  
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset  , Vector2.down, raycastDistance, stopLayer);
-
-            if (hit.collider == null)
-            {
-                moveBlock();
-            }
-            else
-            {
-
-                detectedFloor = true;
-                ParentBlockMovement.enabled = false;
-                setChildrenScriptActive();
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    grid.grid.setBlockStatus(transform.GetChild(i).transform.position, 1);
-                }
-            }
         
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset, Vector2.down, raycastDistance, stopLayer);
 
+
+        if (hit.collider == null)
+        {
+            moveBlock();
+        }
+        else
+        {
+
+            detectedFloor = true;
+            ParentBlockMovement.enabled = false;
+            setChildrenScriptActive();
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                grid.grid.setBlockStatus(transform.GetChild(i).transform.position, 1);
+            }
+        }
+        
     }
 
 
@@ -129,8 +129,10 @@ public class BlockMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        
         Gizmos.DrawRay(transform.position + sizeOffset, Vector2.down * raycastDistance);
+
+
+
     }
 
 }

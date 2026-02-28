@@ -6,6 +6,7 @@ public class SelfDestructEmpty : MonoBehaviour
 
 
 
+
     private void Start()
     {
         grid = GameObject.Find("Grid display").GetComponent<GridTest>();
@@ -40,5 +41,7 @@ public class SelfDestructEmpty : MonoBehaviour
         }
 
     }
+
+
 
 }

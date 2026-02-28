@@ -296,6 +296,8 @@ MonoBehaviour:
   ParentBlockMovement: {fileID: 939702475375907340}
   childBlockMovement: []
   movingDebug: 0
+  killboxSize: {x: 3.5, y: 3.5}
+  bloodExplosion: {fileID: 563588885004715537, guid: 666d6b5b7d20bc34abd5c0377af5dad8, type: 3}
 --- !u!1 &4227076753565762305
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +487,8 @@ MonoBehaviour:
   ParentBlockMovement: {fileID: 939702475375907340}
   childBlockMovement: []
   movingDebug: 0
+  killboxSize: {x: 3.5, y: 3.5}
+  bloodExplosion: {fileID: 563588885004715537, guid: 666d6b5b7d20bc34abd5c0377af5dad8, type: 3}
 --- !u!1 &8164408599381476821
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +678,8 @@ MonoBehaviour:
   ParentBlockMovement: {fileID: 939702475375907340}
   childBlockMovement: []
   movingDebug: 0
+  killboxSize: {x: 3.5, y: 3.5}
+  bloodExplosion: {fileID: 563588885004715537, guid: 666d6b5b7d20bc34abd5c0377af5dad8, type: 3}
 --- !u!1 &8769838039585128738
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,3 +869,5 @@ MonoBehaviour:
   ParentBlockMovement: {fileID: 939702475375907340}
   childBlockMovement: []
   movingDebug: 0
+  killboxSize: {x: 3.5, y: 3.5}
+  bloodExplosion: {fileID: 563588885004715537, guid: 666d6b5b7d20bc34abd5c0377af5dad8, type: 3}

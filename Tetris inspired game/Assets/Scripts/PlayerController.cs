@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance,ground))
         {
             //animator.SetBool("InAir", false);
-            Debug.Log("grounded");
+           
             return true;
         }
         else 

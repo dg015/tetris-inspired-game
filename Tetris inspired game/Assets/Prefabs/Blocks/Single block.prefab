@@ -183,7 +183,10 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
+  blockWidth: 0
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 0}
   childBlockMovement: []
+  movingDebug: 0
+  killboxSize: {x: 3.5, y: 3.5}
