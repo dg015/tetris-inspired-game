@@ -58,6 +58,7 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -12.01, z: 0}
+  blockWidth: 2
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 939702475375907340}
@@ -289,6 +290,7 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
+  blockWidth: 0
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 939702475375907340}
@@ -477,6 +479,7 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
+  blockWidth: 0
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 939702475375907340}
@@ -665,6 +668,7 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
+  blockWidth: 0
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 939702475375907340}
@@ -853,6 +857,7 @@ MonoBehaviour:
     m_Bits: 320
   raycastDistance: 2
   sizeOffset: {x: 0, y: -2.01, z: 0}
+  blockWidth: 0
   detectedFloor: 0
   lineFormed: 0
   ParentBlockMovement: {fileID: 939702475375907340}

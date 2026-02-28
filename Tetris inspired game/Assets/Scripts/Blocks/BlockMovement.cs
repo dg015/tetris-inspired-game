@@ -16,6 +16,7 @@ public class BlockMovement : MonoBehaviour
     [SerializeField] protected LayerMask stopLayer;
     [SerializeField] protected float raycastDistance;
     [SerializeField] protected Vector3 sizeOffset;
+    [SerializeField] private int blockWidth;
 
     [Header("movement management")]
     [SerializeField] protected bool detectedFloor = false;
@@ -101,23 +102,26 @@ public class BlockMovement : MonoBehaviour
 
     protected virtual void detectFloor()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset, Vector2.down, raycastDistance, stopLayer);
-        
-        if(hit.collider == null)  
-        {
-            moveBlock();
-        }
-        else
-        {
-            
-            detectedFloor = true;
-            ParentBlockMovement.enabled = false;
-            setChildrenScriptActive();
-            for (int i = 0; i < transform.childCount; i++)
+  
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + sizeOffset  , Vector2.down, raycastDistance, stopLayer);
+
+            if (hit.collider == null)
             {
-                grid.grid.setBlockStatus(transform.GetChild(i).transform.position, 1);
+                moveBlock();
             }
-        }
+            else
+            {
+
+                detectedFloor = true;
+                ParentBlockMovement.enabled = false;
+                setChildrenScriptActive();
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    grid.grid.setBlockStatus(transform.GetChild(i).transform.position, 1);
+                }
+            }
+        
+
     }
 
 
